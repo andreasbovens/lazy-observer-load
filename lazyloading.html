@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Lazy Loading images using Intersection Observer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.fade-in {
+			animation-name: fadeIn;
+			animation-duration: 1.3s;
+			animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
+			animation-fill-mode: forwards;
+		}
+
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+
+.centered {
+	 display:block;
+	 margin:0 auto;
+}
+	</style>
+	<script>
+	function randomImg() {
+		var allImages = document.getElementsByTagName("img");
+		for (var i = 0; i < allImages.length; i++) {
+			var randomNum = Math.floor(Math.random() * 100) + 1;
+			var paddedRandomNum = String(randomNum).padStart(3, "0");
+			allImages[i].dataset.src = 'https://picsum.photos/200?image=' + paddedRandomNum;
+		}
+	};
+	window.onload = randomImg;
+	</script>
+</head>
+
+<body>
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<img class="js-lazy-image centered" src="200x200.png" width="200" height="200" data-src="">
+	<script src="lazy-load.min.js"></script>
+</body>
+
+</html>
